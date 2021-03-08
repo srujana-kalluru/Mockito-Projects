@@ -2,7 +2,10 @@ package com.hotel.booking.repository;
 
 import com.hotel.booking.model.BookingRequest;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 
 public class BookingDAO {
 

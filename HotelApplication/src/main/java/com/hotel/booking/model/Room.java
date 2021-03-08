@@ -1,5 +1,8 @@
 package com.hotel.booking.model;
 
+import lombok.Getter;
+
+@Getter
 public class Room {
 
 	private final String id;
@@ -8,14 +11,6 @@ public class Room {
 	public Room(String id, int capacity) {
 		this.id = id;
 		this.capacity = capacity;
-	}
-
-	public int getCapacity() {
-		return capacity;
-	}
-
-	public String getId() {
-		return id;
 	}
 
 	@Override

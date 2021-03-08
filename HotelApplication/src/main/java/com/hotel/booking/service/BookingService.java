@@ -3,15 +3,17 @@ package com.hotel.booking.service;
 import com.hotel.booking.model.BookingRequest;
 import com.hotel.booking.repository.BookingDAO;
 import com.hotel.booking.util.CurrencyConverter;
+import lombok.AllArgsConstructor;
 
 import java.time.temporal.ChronoUnit;
 
+@AllArgsConstructor
 public class BookingService {
 
-	private final PaymentService paymentService;
-	private final RoomService roomService;
-	private final BookingDAO bookingDAO;
-	private final MailSenderService mailSenderService;
+	private PaymentService paymentService;
+	private RoomService roomService;
+	private BookingDAO bookingDAO;
+	private MailSenderService mailSenderService;
 
 	private final static double BASE_PRICE_USD = 50.0;
 
@@ -50,15 +52,6 @@ public class BookingService {
 		BookingRequest request = bookingDAO.get(id);
 		roomService.unbookRoom(request.getRoomId());
 		bookingDAO.delete(id);
-	}
-
-	public BookingService(PaymentService paymentService, RoomService roomService, BookingDAO bookingDAO,
-			MailSenderService mailSenderService) {
-		super();
-		this.paymentService = paymentService;
-		this.roomService = roomService;
-		this.bookingDAO = bookingDAO;
-		this.mailSenderService = mailSenderService;
 	}
 
 }
